@@ -1,0 +1,18 @@
+# Ignore virtual environment
+env/
+
+# Ignore static files
+static/
+
+# Ignore cached files
+__pycache__/
+
+# Ignore environment variables
+.env
+.env.bak
+
+# Ignore database file
+database.db
+
+# Ignore backup files
+main.py.bak
