@@ -84,7 +84,6 @@ def update_times(prayer_times):
 # Define a Flask route that retrieves data from the database
 @app.route("/api", methods=["POST"])
 def get_data():
-    print("start")
     with app.app_context():
         conn = get_db()
         cursor = conn.cursor()
@@ -98,9 +97,7 @@ def get_data():
             if request.method == "POST":
                 return jsonify(data)
         except:
-            print("here", "\n")
             print(data)
-            print("here", "\n")
             return data
 
 
@@ -136,7 +133,6 @@ def update_prayer_status():
 
 @app.route("/", methods=["GET"])
 def serve_index():
-    # print(static_dir)
     return app.send_static_file("index.html")
 
 

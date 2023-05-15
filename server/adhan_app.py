@@ -3,6 +3,8 @@ import time
 import os
 from datetime import datetime, date
 from playsound import playsound
+
+# import pygame
 from azan import find_adhan_times_manually
 from flask import Flask, jsonify
 from main import update_times, get_data
@@ -104,6 +106,11 @@ def start():
             prayer_now, prayer_time, to_sleep = find_next_prayer_and_time(now, prayers)
             update_times(prayers)
         if prayer_now and record[prayer_time.capitalize()]["Azan"] == "on":
+            # for raspberry pi/debian
+            # pygame.mixer.init()
+            # pygame.mixer.music.load("azan8.mp3")
+            # pygame.mixer.music.play()
+
             playsound("azan8.mp3")
             print("Azan played")
         time.sleep(to_sleep)
